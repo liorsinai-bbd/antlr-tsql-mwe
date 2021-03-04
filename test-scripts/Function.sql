@@ -1,19 +1,16 @@
-CREATE FUNCTION [dbo].[udfGetActors]
+CREATE FUNCTION [dbo].[udfAverageActorAge]
 (
 	@MovieID int
 )
-RETURNS TABLE
-AS 
-RETURN
-(
-	SELECT MovieID,
-		FirstName,
-		LastName,
-		BirthDate,
-		BirthPlace,
-		CountryOfBirth,
-		DATEDIFF(YEAR, BirthDate, GETDATE()) AS 'Age'
-	FROM Actors
+RETURNS int
+AS
+BEGIN
+	DECLARE @AvgAge int
+
+	SELECT @AvgAge = AVG(Age) FROM Actors
 	WHERE MovieID = @MovieID
-)
-;
+
+	RETURN @AvgAge
+END
+
+GO

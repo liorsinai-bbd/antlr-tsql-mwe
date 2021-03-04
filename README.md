@@ -3,7 +3,7 @@ ANTLR4 Minimum Working Example
 
 Prerequisites
 ------------
-Install ANTRL. This can be downloaded from [www.antlr.org/download.html](https://www.antlr.org/download.html).
+Install ANTLR. This can be downloaded from [www.antlr.org/download.html](https://www.antlr.org/download.html).
 
 The path to this file should be added as an environment variable e.g. C:\Program Files\Java\libs\antlr-4.9.1-complete.jar. 
 
@@ -17,14 +17,20 @@ Getting started
 
 In a terminal run:
 ```
- java org.antlr.v4.Tool -Dlanguage=Python3 TSqlLexer.g4 TSqlParser.g4 
+ java [-classpath <path to antlr-4.X.X-complete.jar] org.antlr.v4.Tool -Dlanguage=Python3 TSqlLexer.g4 TSqlParser.g4 
 ```
+Only add the classpath if you did not add it as an environment variable.
+
+There will be an error with the file generation. In particular in TSqlParser.py, search and replace (ctrl+H): 
+* self.from -> self.from_
+* localctx.from -> localctx.from_
+This error results because ANTLR doesn't recognise `from` as a keyword in Python.
 
 In the IDE, run `main.py`.
 
 VS Code: Launch Configuration
 ------------
-If using VSCode, uncomment the Grammar launch configuration and comment the Python launch configuration to launch grammar debugging mode.
+If using VSCode, uncomment the Grammar launch configuration and comment the Python launch configuration to enable grammar debugging mode.
 
 Relevant files
 --------------

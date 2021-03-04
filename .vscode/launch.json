@@ -15,7 +15,7 @@
         //     "type": "antlr-debug",
         //     "request": "launch",
         //     "name": "Debug Current Grammar",
-        //     "input": "test-scripts/TableInsert.sql",
+        //     "input": "test-scripts/Execute.sql",
         //     "visualParseTree": true,
         //     "grammar": "TSqlParser.g4"
         // }
