@@ -1,0 +1,26 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
+# JetBrains IDEs
+/.idea
+
+# virtualenv
+.venv
+venv/
+ENV/
+
+# vscode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# antlr
+/.antlr
+/TSqlLexer.interp
+/TSqlLexer.py
+/TSqlLexer.tokens
+/TSqlParser.interp
+/TSqlParser.tokens
+/TSqlParser.py
+/TSqlParserListener.py
