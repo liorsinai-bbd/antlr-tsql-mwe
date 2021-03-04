@@ -20,12 +20,13 @@ In a terminal run:
  java [-classpath <path to antlr-4.X.X-complete.jar] org.antlr.v4.Tool -Dlanguage=Python3 TSqlLexer.g4 TSqlParser.g4 
 ```
 Only add the classpath if you did not add it as an environment variable.
-
+<!---
 There will be an error with the file generation. In particular in TSqlParser.py, search and replace (ctrl+H): 
-* self.from -> self.from_
-* localctx.from -> localctx.from_
-This error results because ANTLR doesn't recognise `from` as a keyword in Python.
+* `self.from` -> `self.from_`
+* `localctx.from` -> `localctx.from_`
 
+This error results because ANTLR doesn't recognise `from` as a keyword in Python.
+--->
 In the IDE, run `main.py`.
 
 VS Code: Launch Configuration

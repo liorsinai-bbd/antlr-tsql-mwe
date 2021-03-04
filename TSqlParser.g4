@@ -3014,7 +3014,7 @@ query_specification
       columns=select_list
       // https://msdn.microsoft.com/en-us/library/ms188029.aspx
       (INTO into=table_name)?
-      (FROM from=table_sources)?
+      (FROM from_=table_sources)?
       (WHERE where=search_condition)?
       // https://msdn.microsoft.com/en-us/library/ms177673.aspx
       (GROUP BY groupByAll=ALL? groupBys+=group_by_item (',' groupBys+=group_by_item)*)?
@@ -3327,7 +3327,7 @@ build_in_functions
     // https://msdn.microsoft.com/en-us/library/ms177562.aspx
     | NULLIF '(' left=expression ',' right=expression ')'          #NULLIF
     // https://msdn.microsoft.com/fr-fr/library/ms188043.aspx
-    | STUFF '(' str=expression ',' from=DECIMAL ',' to=DECIMAL ',' str_with=expression ')'                                                                   #STUFF
+    | STUFF '(' str=expression ',' from_=DECIMAL ',' to=DECIMAL ',' str_with=expression ')'                                                                   #STUFF
     // https://msdn.microsoft.com/en-us/library/ms177587.aspx
     | SESSION_USER                                      #SESSION_USER
     // https://msdn.microsoft.com/en-us/library/ms179930.aspx
@@ -3340,6 +3340,8 @@ build_in_functions
     // https://docs.microsoft.com/en-us/sql/t-sql/functions/logical-functions-iif-transact-sql
     | IIF '(' cond=search_condition ',' left=expression ',' right=expression ')'   #IIF
     | STRING_AGG '(' expr=expression ',' separator=expression ')' (WITHIN GROUP '(' order_by_clause ')')?  #STRINGAGG
+    //     // https://docs.microsoft.com/en-us/sql/t-sql/functions/substring-transact-sql?view=sql-server-ver15
+    | SUBSTRING '('expression','DECIMAL ','DECIMAL')'  #SUBSTRING
     ;
     
 xml_data_type_methods

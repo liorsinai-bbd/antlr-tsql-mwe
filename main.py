@@ -9,7 +9,7 @@ from TSqlParser import TSqlParser
 from PrintListener import PrintListener
 
 def main():
-    input_file = 'test-scripts/' + 'Execute.sql'
+    input_file = 'test-scripts/' + 'SelectAll.sql'
     input_stream = FileStream(input_file)
 
     lexer = TSqlLexer(input_stream)
