@@ -8,8 +8,9 @@ from TSqlParser import TSqlParser
 
 from PrintListener import PrintListener
 
-def main():
-    input_file = 'test-scripts/' + 'SelectAll.sql'
+def main(argv):
+    default_file = 'test-scripts/' + 'SelectAll.sql'
+    input_file = default_file if len(argv) == 1 else argv[1]
     input_stream = FileStream(input_file)
 
     lexer = TSqlLexer(input_stream)
@@ -24,4 +25,4 @@ def main():
     walker.walk(printer, tree)
 
 if __name__ == '__main__':
-    main()
+    main(sys.argv)

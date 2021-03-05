@@ -1,3 +1,4 @@
+-- algorithm for verfying ID numbers, see  https://en.wikipedia.org/wiki/Luhn_algorithm
 CREATE FUNCTION [dbo].[udfLuhnAlgo]
 (
 	@ID varchar (13)

@@ -27,7 +27,12 @@ There will be an error with the file generation. In particular in TSqlParser.py,
 
 This error results because ANTLR doesn't recognise `from` as a keyword in Python.
 --->
-In the IDE, run `main.py`.
+* If using a command line, run
+```
+python -m main [path/to/your/file.sql]
+``
+If you don't include the path, the script will use a default file (test-scripts/SelectAll.sql).
+* Or in an IDE, run `main.py`. This will use the default file.
 
 VS Code: Launch Configuration
 ------------
